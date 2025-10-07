@@ -1,0 +1,13 @@
+# Godot 4 cache & imports (generiše se)
+.godot/
+.import/
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.vs/
+
+# Build/export artefakti (ako budeš pravio)
+export/*/
