@@ -28,3 +28,26 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Turn: 0"
+
+[node name="Wood" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Wood: 0"
+
+[node name="Stone" type="Label" parent="UI"]
+offset_left = 621.0
+offset_top = 1.0
+offset_right = 683.0
+offset_bottom = 24.0
+text = "Stone: 0"
+
+[node name="Food" type="Label" parent="UI"]
+offset_left = 478.0
+offset_right = 534.0
+offset_bottom = 23.0
+text = "Food: 0"

@@ -1,53 +1,37 @@
 extends Node2D
 #Nasledjujemo Node2D kako bismo mogli da upotrebimo lifecycle callback-ove (_ready,_process i druge)
 
-#trenutni cilj nam je da uzmemo iz UI-a segment Label koji nam pokazuje koliko je poteza proslo od pocetka igre
-#stavili smo da tokom inicijalizacije u UI bude instanciran objekat klase Label po imenu Turns i da prikazuje tekst: Turns: 0
-#da bismo mogli da menjamo tu vrednost, neophodno je da mu pristupimo u okviru ovog koda
-
-@onready var label : Label = $UI/Turns
-
-#Kreiramo novu promenljivu po imenu label koja je pokazivac na instancu Turns.
+#Kreiramo novu promenljivu po imenu turns_label koja je referenca na instancu Turns.
 #Turns-u pristupamo preko skracene putanje $ i Label tipa
 #@onready pozivamo posto hocemo da se prvo inicijalizuje UI pa tek kasnije pred sam pocetak igre da pristupimo tim vrednostima
 #Ovako osiguravamo da $UI/Label zaista postoji kada ga zahtevamo i da nece doci do greske
+@onready var turns_label : Label = $UI/Turns
+@onready var wood_label : Label = $UI/Wood
+@onready var stone_label : Label = $UI/Stone
+@onready var food_label : Label = $UI/Food
 
-var turn: int = 0
-
-#Kreiramo novu promenljivu koja ce da nam prati na kom smo trenutnom potezu. Samo je broj
-
+#Promenili smo main posto u okviru Singleton-a Game.gd mi cemo cuvati celokupno stanje nase igre
+#(broj poteza, koliko imamo resursa, trenutno aktivni bonusi itd.)
+#To znaci da ovde u Main sceni mi sada ili saljemo promenjene podatke ili prihvatamo trenutno stanje od singletona Game
 func _ready() -> void:
-	print("Main ready: starting turn = ", turn)
-	_update_ui()
+	Game.turn_changed.connect(_on_turn_changed)
+	Game.resources_changed.connect(_on_resources_changed)
+	Game.start_new_session()
+	_on_turn_changed(Game.turn)
+	_on_resources_changed(Game.resources)
 
-#Kada nas cvor udje u scene tree pozvace se funkcija ready
-#Ona se i samo tada poziva, cineci je idealnim kadnidatom za inicijalizaciju nase skripte
-#Dodali smo print funkciju kako bismo lakse proveravali i ispratili situaciju u konzoli
-#_update_ui() je nova funkcija koju smo definisali nize
-
-func _process(delta: float) -> void:
-	pass
-
-#Funkcija _process se poziva na pocetku svakog frame-a i time sluzi za frame-rate nezavisne stvari (npr. animacije ili tajmeri)
-#ne sluzi trenutno za nase poteze, ali ce nam trebati za kasnije, pa je ovo vise podsetnik za mene
-
+#Funkcija koja poziva funkciju singletona za pokretanje narednog poteza kada se pritisne dugme
+#za sledeci potez (space)
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_turn"):
-		_on_next_turn()
+		Game.next_turn()
 
-#_unhandled_input se poziva za svaki input koji nijedan child nije upotrebio (nas input je custom, te sigurno ga niko nije koristio)
-#Dobija se ovim generican InputEvent (bazicna klasa), pa prvo proveravamo da li je bas nas custom input sa if-om
-#U slucaju da jeste nas input, pozivamo custom funkciju _on_next_turn()
+#Menja tekst label-a za poteze
+func _on_turn_changed(new_turn: int) -> void:
+	turns_label.text = "Turn: %d" % new_turn
 
-func _on_next_turn() -> void:
-	turn += 1
-	print("Next turn nam je: ", turn)
-	_update_ui()
-
-#U okviru on_next_turn funkcije za sada samo povecavamo koliko je poteza proteklo
-
-func _update_ui() -> void:
-	label.text = "Turn: %d" % turn
-
-#Pomocna funkcija za update-ovanje teksta promenljive label. Posto to radimmo vise puta bolje izdvojiti u odvojenu funkciju
-#kako bismo izbegli redundansu
+#Funkcija koja ce menjati tekst za Label-e resursa kako bi se adekvatno predstavilo stanje igre
+func _on_resources_changed(res: Dictionary) -> void:
+	wood_label.text = "Wood: %d" % int(res.get("wood", 0))
+	stone_label.text = "Wood: %d" % int(res.get("stone", 0))
+	food_label.text = "Wood: %d" % int(res.get("food", 0))
