@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://5lg1lbdsol6t"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_qknxa"]
+
+[resource]
+script = ExtResource("1_qknxa")
+id = "gather_wood"
+title = "Woodcutting expedition"
+effect_type = "gain_resource"
+effect_params = {
+"amount": 1,
+"resource": "wood"
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

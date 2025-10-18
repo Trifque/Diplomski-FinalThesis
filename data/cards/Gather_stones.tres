@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dpb406pfvbutr"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_g0now"]
+
+[resource]
+script = ExtResource("1_g0now")
+id = "gather_stones"
+title = "Quarry exploration"
+effect_type = "gain_resource"
+effect_params = {
+"amount": 1,
+"resource": "stone"
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

@@ -17,6 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+CardDB="*res://scripts/singletons/CardDB.gd"
+BuildingManager="*res://scripts/singletons/MyBuildingManager.gd"
+EffectSystem="*res://scripts/singletons/MyEffectSystem.gd"
+CostService="*res://scripts/singletons/MyCostService.gd"
 Game="*res://scripts/singletons/Game.gd"
 
 [input]

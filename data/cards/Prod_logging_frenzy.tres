@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://jrdlpdy1moye"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_6tjvx"]
+
+[resource]
+script = ExtResource("1_6tjvx")
+id = "prod_logging_frenzy"
+title = "Logging Frenzy"
+exhaust = true
+starting_card = false
+cost = {
+"food": 5,
+"stone": 0,
+"wood": 0
+}
+effect_type = "gain_resource"
+effect_params = {
+"amount": 10,
+"resource": "wood"
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

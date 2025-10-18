@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://c5r25a1i4fda1"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_x1502"]
+
+[resource]
+script = ExtResource("1_x1502")
+id = "prod_logging_requisition"
+title = "Logging Requisition"
+starting_card = false
+effect_type = "gain_resource"
+effect_params = {
+"amount": 3,
+"resource": "wood"
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

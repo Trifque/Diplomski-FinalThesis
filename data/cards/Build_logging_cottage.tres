@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://cco44d3fanv6h"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_1wdon"]
+
+[resource]
+script = ExtResource("1_1wdon")
+id = "upgrade_logging_cottage"
+title = "Upgrade: Logging Cottage"
+exhaust = true
+starting_card = false
+cost = {
+"food": 0,
+"stone": 2,
+"wood": 4
+}
+effect_type = "building"
+effect_params = {
+"building_id": "wood_logging",
+"deck_add": [{
+"count": 4,
+"id": "prod_logging_requisition"
+}, {
+"count": 1,
+"id": "upgrade_logging_guild"
+}],
+"deck_remove": [{
+"count": -1,
+"id": "prod_tax_logging_camp"
+}, {
+"count": -1,
+"id": "upgrade_logging_cottage"
+}],
+"to_level": 2
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

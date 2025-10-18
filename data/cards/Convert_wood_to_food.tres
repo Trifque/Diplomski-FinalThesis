@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://bisani7paj7k2"]
+
+[ext_resource type="Script" uid="uid://0ja722bg8avq" path="res://scripts/data/cards/Card.gd" id="1_18pn6"]
+
+[resource]
+script = ExtResource("1_18pn6")
+id = "convert_wood_to_food"
+title = "Firewood for food exchange"
+cost = {
+"food": 0,
+"stone": 0,
+"wood": 1
+}
+effect_type = "gain_resource"
+effect_params = {
+"amount": 2,
+"resource": "food"
+}
+metadata/_custom_type_script = "uid://0ja722bg8avq"

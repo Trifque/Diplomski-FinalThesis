@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp01jqy7wsxvx"]
+[gd_scene load_steps=3 format=3 uid="uid://cp01jqy7wsxvx"]
 
-[ext_resource type="Script" uid="uid://pwxpr0mf3k68" path="res://scripts/main.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://pwxpr0mf3k68" path="res://scripts/UI/Main.gd" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://cxxyba6m26hqh" path="res://scripts/systems/deck/DeckManager.gd" id="2_rvslj"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_elqb8")
@@ -51,3 +52,42 @@ offset_left = 478.0
 offset_right = 534.0
 offset_bottom = 23.0
 text = "Food: 0"
+
+[node name="Hand" type="HBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(1000, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -200.0
+offset_right = 575.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Card1" type="Button" parent="UI/Hand"]
+layout_mode = 2
+text = "AAA"
+
+[node name="Card2" type="Button" parent="UI/Hand"]
+layout_mode = 2
+text = "BBB"
+
+[node name="Card3" type="Button" parent="UI/Hand"]
+layout_mode = 2
+text = "CCC"
+
+[node name="Card4" type="Button" parent="UI/Hand"]
+layout_mode = 2
+text = "DDD"
+
+[node name="Card5" type="Button" parent="UI/Hand"]
+layout_mode = 2
+text = "FFF"
+
+[node name="Deck" type="Node" parent="."]
+script = ExtResource("2_rvslj")
