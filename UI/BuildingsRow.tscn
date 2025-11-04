@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://d26jppn552546"]
+
+[ext_resource type="Script" uid="uid://drx1m0j03dtc2" path="res://scripts/UI/BuildingRow.gd" id="1_dp30y"]
+
+[node name="BuildingsRow" type="Node2D"]
+
+[node name="BuildingRow" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+script = ExtResource("1_dp30y")
+
+[node name="Name" type="Label" parent="BuildingRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+clip_text = true
+
+[node name="Level" type="Label" parent="BuildingRow"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Resource" type="Label" parent="BuildingRow"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+horizontal_alignment = 2

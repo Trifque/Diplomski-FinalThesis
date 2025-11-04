@@ -17,6 +17,10 @@ func register_deck(dm: DeckManager) -> void:
 func get_level(id: String) -> int:
     return int(levels.get(id, 0))
 
+##Vrati ceo Dictionary zgrada i njihovih nivoa
+func get_levels_dict() -> Dictionary:
+    return levels
+
 ##Funkcija koja povecava nivo zgrade i onda ubacuje ili izbacuje odgovarajuce karte iz spila
 func build_or_upgrade(params: Dictionary) -> void:
     var bid := String(params.get("building_id", ""))

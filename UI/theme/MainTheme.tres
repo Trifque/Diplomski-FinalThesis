@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://eea6kklvnlnt"]
+
+[ext_resource type="StyleBox" uid="uid://dmlumbmjnhedt" path="res://UI/theme/StyleBoxFlatBar.tres" id="1_iga6m"]
+[ext_resource type="FontFile" uid="uid://u6squhtticg0" path="res://assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf" id="1_psiro"]
+[ext_resource type="StyleBox" uid="uid://b1bb3bxli6cwh" path="res://UI/theme/StyleBoxFlatHand.tres" id="2_ws0o8"]
+[ext_resource type="StyleBox" uid="uid://bi1utdntlcigf" path="res://UI/theme/StyleBoxFlatSidebar.tres" id="3_cad1r"]
+
+[resource]
+default_font = ExtResource("1_psiro")
+default_font_size = 16
+Control/colors/accent = Color(0.49019608, 0.7607843, 0.49019608, 1)
+Control/colors/bg = Color(0.05490196, 0.05882353, 0.07058824, 1)
+Control/colors/danger = Color(0.9098039, 0.4862745, 0.4862745, 1)
+Control/colors/outline = Color(0.16862746, 0.19215687, 0.23137255, 1)
+Control/colors/surface = Color(0.08235294, 0.09411765, 0.11764706, 1)
+Control/colors/surface_2 = Color(0.11764706, 0.13333334, 0.16470589, 1)
+Control/colors/text = Color(0.9019608, 0.91764706, 0.9411765, 1)
+Control/colors/text_muted = Color(0.654902, 0.6862745, 0.7411765, 1)
+Control/colors/warning = Color(0.8980392, 0.75686276, 0.41568628, 1)
+EventBar/styles/StyleBoxFlatBar = ExtResource("1_iga6m")
+HandBar/styles/StyleBoxFlatHand = ExtResource("2_ws0o8")
+SideBar/styles/StyleBoxFlatSidebar = ExtResource("3_cad1r")
+TopBar/styles/StyleBoxFlatBar = ExtResource("1_iga6m")

@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="GameEvent" load_steps=11 format=3 uid="uid://bqkxfdkfced3b"]
+
+[ext_resource type="Script" uid="uid://icwe5ip32rqs" path="res://scripts/data/events/EventChoice.gd" id="1_v6p1k"]
+[ext_resource type="Script" uid="uid://b21nv0l7n6scu" path="res://scripts/data/events/EventEffect.gd" id="2_2o7iq"]
+[ext_resource type="Script" uid="uid://cln5nvl3fsfbd" path="res://scripts/data/events/EventConditions.gd" id="2_02t04"]
+[ext_resource type="Script" uid="uid://cy4k8s2pd1rd1" path="res://scripts/data/events/GameEvent.gd" id="3_02t04"]
+[ext_resource type="Script" uid="uid://dgojnetuurdjd" path="res://scripts/data/events/EventObjective.gd" id="4_hdb2n"]
+
+[sub_resource type="Resource" id="Resource_ajiie"]
+script = ExtResource("2_02t04")
+min_avg_building_level = 2.0
+requires_building_id = "wood_logging"
+requires_building_min_level = 1
+metadata/_custom_type_script = "uid://cln5nvl3fsfbd"
+
+[sub_resource type="Resource" id="Resource_et5uj"]
+script = ExtResource("2_2o7iq")
+effect_type = "gain_resource"
+params = {
+"amount": -5,
+"resource": "wood"
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_u6yhj"]
+script = ExtResource("2_2o7iq")
+effect_type = "building_upgrade"
+params = {
+"building_id": "wood_logging",
+"to_level": 3
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_tfqoc"]
+script = ExtResource("2_2o7iq")
+effect_type = "gain_resource"
+params = {
+"amount": 2,
+"resource": "stone"
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_5y4ee"]
+script = ExtResource("4_hdb2n")
+objective_type = "play_cards_gain_resource"
+params = {
+"min_plays": 3,
+"resource": "wood"
+}
+deadline = 2
+on_success = Array[ExtResource("2_2o7iq")]([SubResource("Resource_u6yhj"), SubResource("Resource_tfqoc")])
+on_fail = Array[ExtResource("2_2o7iq")]([SubResource("Resource_et5uj")])
+metadata/_custom_type_script = "uid://dgojnetuurdjd"
+
+[resource]
+script = ExtResource("3_02t04")
+id = "t3_royal_decree_wood"
+title = "Royal Decree: Wood"
+tier = 3
+kind = 2
+weight = 4
+cooldown = 10
+conditions = SubResource("Resource_ajiie")
+objective = SubResource("Resource_5y4ee")
+metadata/_custom_type_script = "uid://cy4k8s2pd1rd1"

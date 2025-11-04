@@ -38,7 +38,7 @@ func load_cards_from_file() -> void:
 
     print("CardDB je ucitao %d karata." % all_cards.size())
 
-## Rekurzivno skupi sve putanje .tres/.res fajlova iz datog foldera i podfoldera.
+##Rekurzivno skupi sve card-ove u direktorijumu i poddirektorijumima
 func collect_card_paths(dir_path: String, recursive: bool) -> Array[String]:
     var all_paths_to_cards: Array[String] = []
     var directory := DirAccess.open(dir_path)

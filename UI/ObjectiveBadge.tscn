@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd488hdle0fkp"]
+
+[ext_resource type="Script" uid="uid://dogsiydafv3xl" path="res://scripts/UI/ObjectiveBadge.gd" id="1_uccxl"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_uccxl")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="Timer" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="Progress" type="ProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 1

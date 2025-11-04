@@ -7,10 +7,13 @@ extends Node
 func apply_card(card: Card) -> void:
     match card.effect_type:
         "gain_resource":
-            var r := String(card.effect_params.get("resource", "food"))
-            var amt := int(card.effect_params.get("amount", 1))
-            Game.resources[r] = int(Game.resources.get(r, 0)) + amt
+            var resource := String(card.effect_params.get("resource", "food"))
+            var amount := int(card.effect_params.get("amount", 1))
+            amount = EventManager.apply_yield_on_gain(resource, amount)
+            Game.resources[resource] = int(Game.resources.get(resource, 0)) + amount
             Game.resources_changed.emit(Game.resources)
+
+            EventManager.notify_gain(resource, amount)
 
         "building":
             BuildingManager.build_or_upgrade(card.effect_params)

@@ -38,3 +38,16 @@ func pay(card: Card) -> void:
         if need != 0:
             Game.resources[i] = int(Game.resources.get(i, 0)) - need
     Game.resources_changed.emit(Game.resources)
+
+##Da li moze da priusti izbor
+func can_pay_cost_choice(cost: Dictionary) -> bool:
+    for key in cost.keys():
+        if int(Game.resources.get(key, 0)) < int(cost[key]):
+            return false
+    return true
+
+##Plati za izbor
+func pay_cost_choice(cost: Dictionary) -> void:
+    for key in cost.keys():
+        Game.resources[key] = int(Game.resources.get(key, 0)) - int(cost[key])
+    Game.resources_changed.emit(Game.resources)

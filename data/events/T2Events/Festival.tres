@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="GameEvent" load_steps=12 format=3 uid="uid://237h6pno2efn"]
+
+[ext_resource type="Script" uid="uid://cy4k8s2pd1rd1" path="res://scripts/data/events/GameEvent.gd" id="1"]
+[ext_resource type="Script" uid="uid://b21nv0l7n6scu" path="res://scripts/data/events/EventEffect.gd" id="2"]
+[ext_resource type="Script" uid="uid://cln5nvl3fsfbd" path="res://scripts/data/events/EventConditions.gd" id="3_vvsm1"]
+[ext_resource type="Script" uid="uid://icwe5ip32rqs" path="res://scripts/data/events/EventChoice.gd" id="4"]
+
+[sub_resource type="Resource" id="Resource_gxqlk"]
+script = ExtResource("2")
+effect_type = "yield_mod"
+params = {
+"op": "add",
+"scope": "global",
+"value": 2
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_esjtw"]
+script = ExtResource("4")
+label = "Throw a smal festival"
+tick_effects = Array[ExtResource("2")]([SubResource("Resource_gxqlk")])
+metadata/_custom_type_script = "uid://icwe5ip32rqs"
+
+[sub_resource type="Resource" id="Resource_yyu3t"]
+script = ExtResource("2")
+effect_type = "yield_mod"
+params = {
+"op": "add",
+"scope": "global",
+"value": 4
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_1wiio"]
+script = ExtResource("4")
+label = "Fund a grand festival"
+cost = {
+"food": 3
+}
+duration = 2
+tick_effects = Array[ExtResource("2")]([SubResource("Resource_yyu3t")])
+metadata/_custom_type_script = "uid://icwe5ip32rqs"
+
+[sub_resource type="Resource" id="Resource_alw0j"]
+script = ExtResource("2")
+effect_type = "yield_mod"
+params = {
+"op": "add",
+"scope": "global",
+"value": -1
+}
+metadata/_custom_type_script = "uid://b21nv0l7n6scu"
+
+[sub_resource type="Resource" id="Resource_5ioio"]
+script = ExtResource("4")
+label = "Cancel the festival"
+tick_effects = Array[ExtResource("2")]([SubResource("Resource_alw0j")])
+metadata/_custom_type_script = "uid://icwe5ip32rqs"
+
+[sub_resource type="Resource" id="Resource_2ivn7"]
+script = ExtResource("3_vvsm1")
+min_turn = 6
+min_avg_building_level = 1.0
+metadata/_custom_type_script = "uid://cln5nvl3fsfbd"
+
+[resource]
+script = ExtResource("1")
+id = "t2_festival"
+title = "Festival"
+tier = 2
+kind = 2
+weight = 6
+cooldown = 8
+conditions = SubResource("Resource_2ivn7")
+choices = Array[ExtResource("4")]([SubResource("Resource_esjtw"), SubResource("Resource_1wiio"), SubResource("Resource_5ioio")])
+metadata/_custom_type_script = "uid://cy4k8s2pd1rd1"
